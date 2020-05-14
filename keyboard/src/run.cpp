@@ -11,7 +11,7 @@ LRESULT keyboardCallback(int code, WPARAM wParam, LPARAM lParam) {
 int run() {
   HHOOK hHook = SetWindowsHookEx(WH_KEYBOARD_LL, keyboardCallback, 0, 0);
 
-  if (FAILED(hr)) {
+  if (hHook == nullptr) {
     printf("Failed to call SetWindowsHookEx\n");
     return -1;
   }
